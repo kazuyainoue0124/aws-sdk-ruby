@@ -1,0 +1,12 @@
+module Aws
+  module Query
+    class Param
+      def initialize: (String | Symbol, ?(String | nil)) -> void
+
+      attr_reader name: String
+      attr_reader value: String?
+
+      def to_s: -> String
+    end
+  end
+end
