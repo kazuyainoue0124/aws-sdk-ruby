@@ -1,0 +1,70 @@
+module Aws
+  module Sigv4
+    class Signer
+      def initialize: (
+        service: String,
+        region: String,
+        access_key_id: String,
+        secret_access_key: String,
+        session_token?: String?,
+        unsigned_headers?: Array[String]?,
+        uri_escape_path?: bool,
+        apply_checksum_header?: bool,
+        signing_algorithm?: Symbol,
+        omit_session_token?: bool,
+        normalize_path?: bool,
+      ) -> void
+      | (
+        service: String,
+        region: String,
+        credentials: Credentials,
+        unsigned_headers?: Array[String]?,
+        uri_escape_path?: bool,
+        apply_checksum_header?: bool,
+        signing_algorithm?: Symbol,
+        omit_session_token?: bool,
+        normalize_path?: bool,
+      ) -> void
+      | (
+        service: String,
+        region: String,
+        credentials_provider: Object,
+        unsigned_headers?: Array[String]?,
+        uri_escape_path?: bool,
+        apply_checksum_header?: bool,
+        signing_algorithm?: Symbol,
+        omit_session_token?: bool,
+        normalize_path?: bool,
+      ) -> void
+
+      attr_reader service: String
+      attr_reader region: String
+      attr_reader credentials_provider: Object
+      attr_reader unsigned_headers: Array[String]
+      attr_reader apply_checksum_header: bool
+
+      def sign_request: (
+        http_method: String,
+        url: String,
+        headers: Hash[String, String],
+        body?: String,
+      ) -> Signature
+
+      def sign_event: (
+        prior_signature: String,
+        payload: String,
+        encoder: Object
+      ) -> Object
+
+      def presign_url: (
+        http_method: String,
+        url: String | URI::HTTP | URI::HTTPS,
+        headers?: Hash[String, String],
+        expires_in?: Integer,
+        body?: String | IO,
+        body_digest?: String,
+        time?: Time,
+      ) -> (URI::HTTP | URI::HTTPS)
+    end
+  end
+end

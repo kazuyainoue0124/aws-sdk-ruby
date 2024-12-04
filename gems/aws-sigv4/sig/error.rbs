@@ -1,0 +1,13 @@
+module Aws
+  module Sigv4
+    module Errors
+      class MissingCredentialsError < ArgumentError
+        def initialize: (?String? msg) -> void
+      end
+
+      class MissingRegionError < ArgumentError
+        def initialize: (*untyped args) -> void
+      end
+    end
+  end
+end
