@@ -2,11 +2,11 @@ module Aws
   module Sigv4
     module Errors
       class MissingCredentialsError < ArgumentError
-        def initialize: (?String? msg) -> void
+        def initialize: (?String msg) -> void
       end
 
       class MissingRegionError < ArgumentError
-        def initialize: (*untyped args) -> void
+        def initialize: (*untyped) -> void
       end
     end
   end
