@@ -3,7 +3,7 @@ module Aws
     class Request
       def initialize: (
           http_method: String,
-          endpoint: URI::HTTP | URI::HTTPS | String,
+          endpoint: String | untyped,
           ?headers: Hash[String, String],
           ?body: String | IO
         ) -> void
@@ -12,8 +12,8 @@ module Aws
       def http_method=: (String http_method) -> void
       def http_method: () -> String
 
-      def endpoint: () -> (URI::HTTP | URI::HTTPS)
-      def endpoint=: (String | URI::HTTP | URI::HTTPS endpoint) -> void
+      def endpoint: () -> (untyped)
+      def endpoint=: (String | untyped endpoint) -> void
 
       def headers=: (Hash[String, String] headers) -> void
       def headers: () -> Hash[String, String]
