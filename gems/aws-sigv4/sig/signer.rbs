@@ -43,7 +43,7 @@ module Aws
         ?expires_in: Integer,
         ?body: String | IO,
         ?body_digest: String,
-        time?: Time,
+        ?time: Time,
       ) -> (untyped)
     end
   end
