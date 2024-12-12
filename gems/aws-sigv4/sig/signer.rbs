@@ -4,17 +4,17 @@ module Aws
       def initialize: (
         service: String,
         region: String,
-        access_key_id?: String,
-        secret_access_key?: String,
-        session_token?: String,
-        credentials?: untyped,
-        credentials_provider?: untyped,
-        unsigned_headers?: Array[String],
-        uri_escape_path?: bool,
-        apply_checksum_header?: bool,
-        signing_algorithm?: :sigv4 | :sigv4a | :'sigv4-s3express',
-        omit_session_token?: bool,
-        normalize_path?: bool,
+        ?access_key_id: String,
+        ?secret_access_key: String,
+        ?session_token: String,
+        ?credentials: untyped,
+        ?credentials_provider: untyped,
+        ?unsigned_headers: Array[String],
+        ?uri_escape_path: bool,
+        ?apply_checksum_header: bool,
+        ?signing_algorithm: :sigv4 | :sigv4a | :'sigv4-s3express',
+        ?omit_session_token: bool,
+        ?normalize_path: bool,
       ) -> void
 
       attr_reader service: String
@@ -26,8 +26,8 @@ module Aws
       def sign_request: (
         http_method: String,
         url: String | untyped,
-        headers?: Hash[String, String],
-        body?: String | IO,
+        ?headers: Hash[String, String],
+        ?body: String | IO,
       ) -> Signature
 
       def sign_event: (
@@ -39,10 +39,10 @@ module Aws
       def presign_url: (
         http_method: String,
         url: String | untyped,
-        headers?: Hash[String, String],
-        expires_in?: Integer,
-        body?: String | IO,
-        body_digest?: String,
+        ?headers: Hash[String, String],
+        ?expires_in: Integer,
+        ?body: String | IO,
+        ?body_digest: String,
         time?: Time,
       ) -> (untyped)
     end
