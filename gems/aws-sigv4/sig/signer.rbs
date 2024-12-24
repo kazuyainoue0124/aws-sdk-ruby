@@ -16,6 +16,7 @@ module Aws
         ?omit_session_token: bool,
         ?normalize_path: bool,
       ) -> void
+      | (?Hash[Symbol, untyped]) -> void
 
       attr_reader service: String
       attr_reader region: String

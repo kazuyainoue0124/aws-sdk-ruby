@@ -7,7 +7,7 @@ module Aws
           ?headers: Hash[String, String],
           ?body: String | IO
         ) -> void
-        | (Hash[Symbol, untyped]) -> void
+        | (?Hash[Symbol, untyped]) -> void
 
       def http_method=: (String http_method) -> void
       def http_method: () -> String
