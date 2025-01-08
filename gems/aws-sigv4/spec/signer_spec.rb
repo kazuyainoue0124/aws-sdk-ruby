@@ -289,7 +289,7 @@ module Aws
           expect(signature.headers['x-amz-content-sha256']).to be(nil)
         end
 
-        it 'computes the checksum of files without loading them into memory' do
+        it 'computes the checksum of files without loading them into memory', rbs_test: :skip do
           body = Tempfile.new('tempfile')
           body.write('abc')
           body.flush

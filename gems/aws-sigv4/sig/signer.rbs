@@ -28,13 +28,13 @@ module Aws
         http_method: String,
         url: String | untyped,
         ?headers: Hash[String, String],
-        ?body: String | IO | StringIO,
+        ?body: String | IO | StringIO | File,
       ) -> Signature
 
       def sign_event: (
-        prior_signature: String,
-        payload: String,
-        encoder: untyped
+        String,
+        String,
+        untyped
       ) -> [Hash[String, untyped], String]
 
       def presign_url: (
