@@ -28,7 +28,7 @@ module Aws
         http_method: String,
         url: String | untyped,
         ?headers: Hash[String, String],
-        ?body: String | IO | StringIO | File,
+        ?body: String | IO | StringIO | Tempfile,
       ) -> Signature
 
       def sign_event: (
