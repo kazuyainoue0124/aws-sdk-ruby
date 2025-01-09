@@ -2,7 +2,7 @@
 
 /.byebug_history
 /.bundle
-/.gems_rbs_collection
+/.gem_rbs_collection
 /.yardoc
 /api-docs
 /Gemfile.lock
