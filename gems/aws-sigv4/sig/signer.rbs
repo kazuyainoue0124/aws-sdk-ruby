@@ -20,13 +20,13 @@ module Aws
 
       attr_reader service: String
       attr_reader region: String
-      attr_reader credentials_provider: untyped
+      attr_reader credentials_provider: _CredentialsProvider
       attr_reader unsigned_headers: Array[String]
       attr_reader apply_checksum_header: bool
 
       def sign_request: (
         http_method: String,
-        url: String | untyped,
+        url: String | URI::HTTPS | URI::HTTP,
         ?headers: Hash[String, String],
         ?body: String | IO | StringIO | Tempfile,
       ) -> Signature
@@ -39,13 +39,13 @@ module Aws
 
       def presign_url: (
         http_method: String,
-        url: String | untyped,
+        url: String | URI::HTTP | URI::HTTPS,
         ?headers: Hash[String, String],
         ?expires_in: Integer,
         ?body: String | IO,
         ?body_digest: String,
         ?time: Time,
-      ) -> (untyped)
+      ) -> (URI::HTTP | URI::HTTPS)
     end
   end
 end
