@@ -8,6 +8,12 @@ sources:
 path: .gem_rbs_collection
 
 gems:
+  - name: stringio
+    ignore: false
+  - name: tempfile
+    ignore: false
+  - name: uri
+    ignore: false
   - name: addressable
     ignore: true
   - name: diff-lcs
@@ -18,10 +24,6 @@ gems:
     ignore: true
   - name: rubocop
     ignore: true
-  - name: stringio
-    ignore: false
-  - name: tempfile
-    ignore: false
   - name: webmock
     ignore: true
   - name: yard
